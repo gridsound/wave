@@ -1,0 +1,48 @@
+{
+	"title": "Wave by GridSound",
+	"desc": "A wavetable editor",
+	"favicon": "assets/ico.svg",
+	"url": "https://wave.gridsound.com/",
+	"serviceWorker": "serviceWorker.js",
+	"cssSrcA": [
+		"assets/fonts/fonts.css"
+	],
+	"cssSrcB": [
+		"src/style.css"
+	],
+	"jsSrcB": [
+		"src/run.js"
+	],
+	"cssDep": [
+		"gs-ui-components/gsui.css",
+		"gs-ui-components/gsui-gray.css",
+		"gs-ui-components/gsui-flex.css",
+		"gs-ui-components/gsui-form.css",
+		"gs-ui-components/gsuiIcon/gsuiIcon.css",
+		"gs-ui-components/gsuiSlider/gsuiSlider.css",
+		"gs-ui-components/gsuiDropdown/gsuiDropdown.css",
+		"gs-ui-components/gsuiBeatlines/gsuiBeatlines.css",
+		"gs-ui-components/gsuiActionMenu/gsuiActionMenu.css",
+		"gs-ui-components/gsuiWaveEditor/gsuiWaveEditor.css"
+	],
+	"jsDep": [
+		"gs-utils/gs-utils.js",
+		"gs-utils/gs-utils-dom.js",
+		"gs-utils/gs-utils-math.js",
+		"gs-utils/gs-utils-func.js",
+		"gs-utils/gs-utils-jquery.js",
+		"gs-utils/gs-utils-checkType.dev.js",
+		"gs-utils/gs-utils-audio-nodes.dev.js",
+
+		"gs-ui-components/gsui-constantes.js",
+		"gs-ui-components/gsui0ne/gsui0ne.js",
+		"gs-ui-components/gsuiSlider/gsuiSlider.html.js",
+		"gs-ui-components/gsuiSlider/gsuiSlider.js",
+		"gs-ui-components/gsuiDropdown/gsuiDropdown.js",
+		"gs-ui-components/gsuiDropdown/getAbsPos.js",
+		"gs-ui-components/gsuiBeatlines/gsuiBeatlines.js",
+		"gs-ui-components/gsuiActionMenu/gsuiActionMenu.js",
+		"gs-ui-components/gsuiWaveEditor/gsuiWaveEditor.html.js",
+		"gs-ui-components/gsuiWaveEditor/gsuiWaveEditor.js"
+	]
+}
