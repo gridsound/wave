@@ -91,9 +91,8 @@ function changeWave( waveArray ) {
 }
 
 GSUdomSetAttr( GSUdomBody, "data-skin", "gray" );
-uiWave.$reset( "sawtooth" );
-
-changeWave( GSUmathWaveSawtooth( 2048 ) );
+uiWave.$reset( "sine" );
+changeWave( GSUmathWaveSine( 2048 ) );
 
 GSUdomListen( GSUdomBody, {
 	[ GSEV_KEYS_KEYDOWN ]: d => startKey( d.$args[ 0 ] ),
