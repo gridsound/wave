@@ -14,7 +14,7 @@ GSUdomBody.append(
 		),
 	),
 	GSUcreateDiv( { id: "myPiano" },
-		GSUcreateElement( "gsui-keys", { orient: "horizontal", octaves: "1 2" } ),
+		GSUcreateElement( "gsui-keys", { orient: "horizontal", octaves: "3 1" } ),
 	),
 );
 
@@ -24,6 +24,11 @@ const keys = {};
 const oscId = "0";
 const oscWtName = GSUformatWavetableName( "0", oscId );
 const oscObjChange = {
+	envs: {
+		gain: {
+			release: .05,
+		},
+	},
 	oscillators: {
 		[ oscId ]: GSUgetModel( "oscillator", {
 			wave: oscWtName,
