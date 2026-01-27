@@ -3,7 +3,6 @@
 	"desc": "A wavetable editor",
 	"favicon": "assets/ico.svg",
 	"url": "https://wave.gridsound.com/",
-	"serviceWorker": "serviceWorker.js",
 	"cssSrcA": [
 		"assets/fonts/fonts.css"
 	],
