@@ -27,7 +27,7 @@ body {
 	justify-content: center;
 	margin-top: auto;
 	margin-bottom: 10px;
-	padding-top: 32px;
+	padding-top: 8px;
 	gap: 12px;
 }
 #title {
@@ -78,7 +78,7 @@ body {
 	padding: 4px;
 	border-radius: 4px;
 	background-image: linear-gradient( 90deg, #ff4040, #d07fff );
-	box-shadow: 8px 8px 0px #0003;
+	box-shadow: 8px 8px 0 #0003;
 }
 
 #myPiano {
@@ -118,8 +118,14 @@ body {
 	color: inherit;
 }
 
-@media ( orientation: portrait ) AND ( max-height: 700px ) {
+@media ( orientation: portrait ) AND ( max-height: 680px ) {
 	.gsuiWaveEditor-tools button {
 		height: 22px;
 	}
 }
+@media ( orientation: portrait ) AND ( max-height: 650px ) {
+	.gsuiWaveEditor-tools button {
+		height: 18px;
+	}
+}
+
