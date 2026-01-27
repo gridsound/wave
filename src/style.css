@@ -81,6 +81,19 @@ body {
 	box-shadow: 8px 8px 0px #0003;
 }
 
+#myPiano {
+	display: flex;
+	margin-top: 20px;
+	width: calc( 100% - 40px );
+	height: 100px;
+
+	gsui-keys {
+		overflow: hidden;
+		margin: auto;
+		border-radius: 8px;
+	}
+}
+
 /* .......................................................................... */
 #foot {
 	display: flex;
