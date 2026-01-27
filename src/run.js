@@ -45,7 +45,7 @@ gswaPeriodicWaves.$addWavetable( oscWtName, oscObjChange.oscillators[ 0 ].waveta
 $( "#title button" ).$on( "click", () => {
 	GSUpopup.$custom( {
 		title: "About",
-		element: GSUcreateDiv( { style: { width: "340px" } },
+		element: GSUcreateDiv( { style: { maxWidth: "340px" } },
 			GSUcreateElement( "i", null, "wave.gridsound.com" ),
 			GSUcreateSpan( null, " is a wavelet editor. It's also a subpart of the GridSound's synthesizer." ),
 			GSUcreateElement( "br" ),
