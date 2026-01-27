@@ -118,9 +118,8 @@ body {
 	color: inherit;
 }
 
-
-@media ( max-width: 450px ) {
-	#head {
-		flex-direction: column;
+@media ( orientation: portrait ) AND ( max-height: 700px ) {
+	.gsuiWaveEditor-tools button {
+		height: 22px;
 	}
 }
