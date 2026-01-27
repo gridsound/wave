@@ -33,19 +33,23 @@ body {
 #title {
 	display: flex;
 	align-items: baseline;
-	gap: 10px;
 	position: relative;
 	z-index: 1;
 	font-size: 24px;
 	font-weight: bold;
 	white-space: nowrap;
 
-	span:first-child {
-		text-shadow: 0 0 20px #fff4;
-	}
-	span:last-child {
-		font-size: 10px;
+	span {
+		margin-left: 10px;
+		font-size: 12px;
 		color: #999;
+	}
+	button {
+		border: 0;
+		padding: 0;
+		margin-left: 4px;
+		background: none;
+		font-size: 16px;
 	}
 }
 #logo {
@@ -84,6 +88,7 @@ body {
 #myPiano {
 	display: flex;
 	margin-top: 20px;
+	margin-bottom: auto;
 	width: calc( 100% - 40px );
 	height: 100px;
 
@@ -95,29 +100,6 @@ body {
 }
 
 /* .......................................................................... */
-#foot {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	margin-top: auto;
-	gap: 12px;
-	max-width: 470px;
-	padding: 20px 6ch;
-	font-size: 12px;
-	text-align: center;
-	color: #fff6;
-}
-#foot a {
-	color: inherit;
-}
-#foot i {
-	white-space: nowrap;
-}
-#copyright {
-	font-weight: bold;
-	color: inherit;
-}
-
 @media ( orientation: portrait ) AND ( max-height: 680px ) {
 	.gsuiWaveEditor-tools button {
 		height: 22px;
