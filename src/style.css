@@ -1,7 +1,7 @@
 html,
 body {
 	height: 100%;
-	user-select: auto;
+	user-select: none;
 }
 body {
 	color-scheme: dark;
@@ -60,29 +60,17 @@ body {
 
 /* .......................................................................... */
 #myWave {
-	position: relative;
-	display: flex;
-	gap: 8px;
 	width: calc( 100% - 40px );
 	max-width: 1000px;
 	min-height: 226px;
-	user-select: none;
-
-	gsui-wave-editor {
-		background-color: #334;
-	}
-}
-#niceBorder {
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	width: 100%;
-	height: 100%;
-	min-height: 60px;
 	padding: 4px;
 	border-radius: 4px;
 	background-image: linear-gradient( 90deg, #ff4040, #d07fff );
 	box-shadow: 8px 8px 0 #0003;
+
+	gsui-wave-editor {
+		background-color: #334f;
+	}
 }
 
 #myPiano {
