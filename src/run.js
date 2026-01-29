@@ -118,8 +118,8 @@ function changeWave( waveArray ) {
 }
 
 GSUdomSetAttr( GSUdomBody, "data-skin", "gray" );
-uiWave.$reset( "sine" );
-changeWave( GSUmathWaveSine( 2048 ) );
+uiWave.$reset( "sawtooth" );
+changeWave( GSUmathWaveSawtooth( 2048 ) );
 
 GSUdomObserveSize( GSUdomBody, ( w, h ) => {
 	const b = w > h;
