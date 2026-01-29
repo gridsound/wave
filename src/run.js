@@ -1,18 +1,22 @@
 "use strict";
 
 GSUdomBody.append(
-	GSUcreateDiv( { id: "head" },
-		GSUcreateDiv( { id: "title" },
-			GSUcreateDiv( { id: "logo" } ),
-			GSUcreateSpan( null, "by GridSound" ),
-			GSUcreateButton( { icon: "info" } ),
+	GSUcreateDiv( { id: "main" },
+		GSUcreateDiv( { id: "head" },
+			GSUcreateDiv( { id: "title" },
+				GSUcreateDiv( { id: "logo" } ),
+				GSUcreateSpan( null, "by GridSound" ),
+				GSUcreateButton( { icon: "info" } ),
+			),
 		),
-	),
-	GSUcreateDiv( { id: "myWave" },
-		GSUcreateElement( "gsui-wave-editor" ),
-	),
-	GSUcreateDiv( { id: "myPiano" },
-		GSUcreateElement( "gsui-keys", { orient: "horizontal", octaves: "3 1" } ),
+		GSUcreateDiv( { id: "content" },
+			GSUcreateDiv( { id: "myWave" },
+				GSUcreateElement( "gsui-wave-editor" ),
+			),
+			GSUcreateDiv( { id: "myPiano" },
+				GSUcreateElement( "gsui-keys", { orient: "horizontal", octaves: "3 1" } ),
+			),
+		),
 	),
 );
 
@@ -36,6 +40,7 @@ const oscObjChange = {
 };
 
 const root = GSUdomQS( "#myWave" );
+const uiKeys = GSUdomQS( "gsui-keys" );
 const uiWave = GSUdomQS( "gsui-wave-editor" );
 
 waSyn.$setContext( ctx );
@@ -47,6 +52,7 @@ gswaPeriodicWaves.$addWavetable( oscWtName, oscObjChange.oscillators[ 0 ].waveta
 
 $( "#title button" ).$on( "click", () => {
 	GSUpopup.$custom( {
+		ok: "Ok",
 		title: "About",
 		element: GSUcreateDiv( { style: { maxWidth: "340px" } },
 			GSUcreateElement( "i", null, "wave.gridsound.com" ),
@@ -66,7 +72,6 @@ $( "#title button" ).$on( "click", () => {
 				" all rights reserved",
 			),
 		),
-		ok: "Ok",
 	} );
 } );
 
@@ -115,6 +120,13 @@ function changeWave( waveArray ) {
 GSUdomSetAttr( GSUdomBody, "data-skin", "gray" );
 uiWave.$reset( "sine" );
 changeWave( GSUmathWaveSine( 2048 ) );
+
+GSUdomObserveSize( GSUdomBody, ( w, h ) => {
+	const b = w > h;
+
+	GSUdomSetAttr( uiKeys, "orient", b ? "vertical" : "horizontal" );
+	GSUdomSetAttr( GSUdomBody, "data-landscape", b );
+} );
 
 GSUdomListen( GSUdomBody, {
 	[ GSEV_KEYS_KEYDOWN ]: d => startKey( d.$args[ 0 ] ),
