@@ -8,6 +8,7 @@ GSUdomBody.append(
 				GSUcreateSpan( null, "by GridSound" ),
 				GSUcreateButton( { icon: "info" } ),
 			),
+			GSUcreateElement( "gsui-com-button", { text: "WAV file" } ),
 		),
 		GSUcreateDiv( { id: "content" },
 			GSUcreateDiv( { id: "myWave" },
@@ -39,9 +40,9 @@ const oscObjChange = {
 	},
 };
 
-const root = GSUdomQS( "#myWave" );
-const uiKeys = GSUdomQS( "gsui-keys" );
-const uiWave = GSUdomQS( "gsui-wave-editor" );
+const uiKeys = $( "gsui-keys" );
+const uiWave = $( "gsui-wave-editor" );
+let currentWaveArray = null;
 
 waSyn.$setContext( ctx );
 waSyn.$output.connect( ctx.destination );
@@ -49,6 +50,16 @@ waSyn.$change( oscObjChange );
 
 gswaCrossfade.$loadModule( ctx );
 gswaPeriodicWaves.$addWavetable( oscWtName, oscObjChange.oscillators[ 0 ].wavetable.waves );
+
+$( "#head gsui-com-button" ).$on( "click", () => {
+	const pcm = gswaEncodeWAV.$encodeManual( {
+		$nbChannels: 1,
+		$sampleRate: 44100,
+		$chan0: currentWaveArray,
+	} );
+
+	GSUdownloadBlob( "gridsound-wave.wav", gswaEncodeWAV.$createBlob( pcm ) );
+} );
 
 $( "#title button" ).$on( "click", () => {
 	GSUpopup.$custom( {
@@ -107,6 +118,7 @@ function changeWave( waveArray ) {
 		},
 	};
 
+	currentWaveArray = waveArray;
 	waSyn.$change( {
 		oscillators: {
 			[ oscId ]: {
@@ -118,13 +130,13 @@ function changeWave( waveArray ) {
 }
 
 GSUdomSetAttr( GSUdomBody, "data-skin", "gray" );
-uiWave.$reset( "sawtooth" );
+uiWave.$get( 0 ).$reset( "sawtooth" );
 changeWave( GSUmathWaveSawtooth( 2048 ) );
 
 GSUdomObserveSize( GSUdomBody, ( w, h ) => {
 	const b = w > h;
 
-	GSUdomSetAttr( uiKeys, "orient", b ? "vertical" : "horizontal" );
+	uiKeys.$setAttr( "orient", b ? "vertical" : "horizontal" );
 	GSUdomSetAttr( GSUdomBody, "data-landscape", b );
 } );
 
