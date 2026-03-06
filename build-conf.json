@@ -26,7 +26,9 @@
 		"gs-ui-components/gsuiBeatlines/gsuiBeatlines.css",
 		"gs-ui-components/gsuiComButton/gsuiComButton.css",
 		"gs-ui-components/gsuiActionMenu/gsuiActionMenu.css",
-		"gs-ui-components/gsuiWaveEditor/gsuiWaveEditor.css"
+		"gs-ui-components/gsuiWaveEditor/gsuiWaveEditor.css",
+		"gs-ui-components/gsuiPeriodicWave/gsuiPeriodicWave.css",
+		"gs-ui-components/gsuiWaveletBrowser/gsuiWaveletBrowser.css"
 	],
 	"jsDep": [
 		"gs-utils/gs-utils.js",
@@ -41,6 +43,8 @@
 		"gs-utils/gs-utils-math-fft.js",
 		"gs-utils/gs-utils-checkType.dev.js",
 		"gs-utils/gs-utils-audio-nodes.dev.js",
+		
+		"gs-api-client/gsapiClient.js",
 
 		"gs-wa-components/gswaLFO/gswaLFO.js",
 		"gs-wa-components/gswaSynth/gswaSynth.js",
@@ -67,6 +71,9 @@
 		"gs-ui-components/gsuiBeatlines/gsuiBeatlines.js",
 		"gs-ui-components/gsuiActionMenu/gsuiActionMenu.js",
 		"gs-ui-components/gsuiWaveEditor/gsuiWaveEditor.html.js",
-		"gs-ui-components/gsuiWaveEditor/gsuiWaveEditor.js"
+		"gs-ui-components/gsuiWaveEditor/gsuiWaveEditor.js",
+		"gs-ui-components/gsuiPeriodicWave/gsuiPeriodicWave.js",
+		"gs-ui-components/gsuiWaveletBrowser/gsuiWaveletBrowser.html.js",
+		"gs-ui-components/gsuiWaveletBrowser/gsuiWaveletBrowser.js"
 	]
 }
