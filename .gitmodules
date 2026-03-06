@@ -10,3 +10,6 @@
 [submodule "gs-wa-components"]
 	path = gs-wa-components
 	url = https://github.com/gridsound/gs-wa-components.git
+[submodule "gs-api-client"]
+	path = gs-api-client
+	url = https://github.com/gridsound/gs-api-client.git
