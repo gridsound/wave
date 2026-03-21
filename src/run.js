@@ -3,7 +3,7 @@
 GSUloadJSFile( "assets/gsuiWaveletList-v1.js?1" ).then( init );
 
 function init() {
-	GSUdomBody.append(
+	$body.$append(
 		GSUcreateDiv( { id: "main" },
 			GSUcreateDiv( { id: "head" },
 				GSUcreateDiv( { id: "title" },
@@ -134,18 +134,18 @@ function init() {
 		gswaPeriodicWaves.$updateWavetable( oscWtName, waves, waves )[ 0 ];
 	}
 
-	GSUdomSetAttr( GSUdomBody, "data-skin", "gray" );
+	$body.$setAttr( "data-skin", "gray" );
 	uiWave.$get( 0 ).$reset( "sawtooth" );
 	changeWave( GSUmathWaveSawtooth( 2048 ) );
 
-	GSUdomObserveSize( GSUdomBody, ( w, h ) => {
+	GSUdomObserveSize( $body.$get( 0 ), ( w, h ) => {
 		const b = w > h;
 
 		uiKeys.$setAttr( "orient", b ? "vertical" : "horizontal" );
-		GSUdomSetAttr( GSUdomBody, "data-landscape", b );
+		$body.$setAttr( "data-landscape", b );
 	} );
 
-	GSUdomListen( GSUdomBody, {
+	GSUdomListen( $body.$get( 0 ), {
 		[ GSEV_KEYS_KEYDOWN ]: d => startKey( d.$args[ 0 ] ),
 		[ GSEV_KEYS_KEYUP ]: d => stopKey( d.$args[ 0 ] ),
 		[ GSEV_WAVEEDITOR_CHANGE ]: d => changeWave( d.$args[ 0 ] ),
