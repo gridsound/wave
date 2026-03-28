@@ -52,7 +52,6 @@
 		"gs-wa-components/gswaEncodeWAV/gswaEncodeWAV.js",
 		"gs-wa-components/gswaCrossfade/gswaCrossfade.js",
 		"gs-wa-components/gswaOscillator/gswaOscillator.js",
-		"gs-wa-components/gswaStereoPanner/gswaStereoPanner.js",
 		"gs-wa-components/gswaPeriodicWaves/gswaPeriodicWaves.js",
 
 		"gs-ui-components/gsui-constantes.js",

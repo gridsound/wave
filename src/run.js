@@ -56,7 +56,7 @@ function init() {
 	gswaCrossfade.$loadModule( ctx );
 	gswaPeriodicWaves.$addWavetable( oscWtName, oscObjChange.oscillators[ 0 ].wavetable.waves );
 
-	$( "#head gsui-com-button" ).$on( "click", () => {
+	$( "#head gsui-com-button" ).$onclick( () => {
 		const pcm = gswaEncodeWAV.$encodeManual( {
 			$nbChannels: 1,
 			$sampleRate: 44100,
@@ -66,7 +66,7 @@ function init() {
 		GSUdownloadBlob( "gridsound-wave.wav", gswaEncodeWAV.$createBlob( pcm ) );
 	} );
 
-	$( "#title button" ).$on( "click", () => {
+	$( "#title button" ).$onclick( () => {
 		GSUpopup.$custom( {
 			ok: "Ok",
 			title: "About",
