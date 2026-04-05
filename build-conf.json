@@ -41,8 +41,7 @@
 		"gs-utils/gs-utils-jquery.js",
 		"gs-utils/gs-utils-models.js",
 		"gs-utils/gs-utils-math-fft.js",
-		"gs-utils/gs-utils-checkType.dev.js",
-		"gs-utils/gs-utils-audio-nodes.dev.js",
+		"gs-utils/gs-utils-audio-nodes.js",
 		
 		"gs-api-client/gsapiClient.js",
 
