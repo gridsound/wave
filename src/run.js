@@ -88,7 +88,7 @@ function init() {
 				GSUcreateElement( "br" ),
 				GSUcreateElement( "br" ),
 				GSUcreateDiv( { style: { textAlign: "center", fontSize: "12px", fontWeight: "bold" } },
-					`© ${ ( new Date() ).getFullYear() } `,
+					`© ${ new Date().getFullYear() } `,
 					GSUcreateA( { href: "//gridsound.com" }, "gridsound.com" ),
 					" all rights reserved",
 				),
@@ -136,7 +136,7 @@ function init() {
 				},
 			},
 		} );
-		gswaPeriodicWaves.$updateWavetable( oscWtName, waves, waves )[ 0 ];
+		gswaPeriodicWaves.$updateWavetable( oscWtName, waves, waves );
 	}
 
 	$body.$setAttr( "data-skin", "gray" );
