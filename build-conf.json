@@ -20,6 +20,7 @@
 		"gs-ui-components/gsuiIcon/gsuiIcon.css",
 		"gs-ui-components/gsuiKeys/gsuiKeys.css",
 		"gs-ui-components/gsuiPopup/gsuiPopup.css",
+		"gs-ui-components/gsuiCursor/gsuiCursor.css",
 		"gs-ui-components/gsuiRipple/gsuiRipple.css",
 		"gs-ui-components/gsuiSlider/gsuiSlider.css",
 		"gs-ui-components/gsuiDropdown/gsuiDropdown.css",
