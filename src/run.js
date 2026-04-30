@@ -4,21 +4,21 @@ GSUloadJSFile( "assets/gsuiWaveletList-v1.js?1" ).then( init );
 
 function init() {
 	$body.$append(
-		GSUcreateDiv( { id: "main" },
-			GSUcreateDiv( { id: "head" },
-				GSUcreateDiv( { id: "title" },
-					GSUcreateDiv( { id: "logo" } ),
-					GSUcreateSpan( null, "by GridSound" ),
-					GSUcreateButton( { icon: "info" } ),
+		$.$div( { id: "main" },
+			$.$div( { id: "head" },
+				$.$div( { id: "title" },
+					$.$div( { id: "logo" } ),
+					$.$span( null, "by GridSound" ),
+					$.$button( { icon: "info" } ),
 				),
-				GSUcreateElement( "gsui-com-button", { text: "WAV file" } ),
+				$.$elem( "gsui-com-button", { text: "WAV file" } ),
 			),
-			GSUcreateDiv( { id: "content" },
-				GSUcreateDiv( { id: "myWave" },
-					GSUcreateElement( "gsui-wave-editor" ),
+			$.$div( { id: "content" },
+				$.$div( { id: "myWave" },
+					$.$elem( "gsui-wave-editor" ),
 				),
-				GSUcreateDiv( { id: "myPiano" },
-					GSUcreateElement( "gsui-keys", { orient: "horizontal", octaves: "3 1" } ),
+				$.$div( { id: "myPiano" },
+					$.$elem( "gsui-keys", { orient: "horizontal", octaves: "3 1" } ),
 				),
 			),
 		),
@@ -67,29 +67,29 @@ function init() {
 	} );
 
 	$( "#title button" ).$onclick( () => {
-		GSUpopup.$custom( {
+		$popup.$custom( {
 			ok: "Ok",
 			title: "About",
-			element: GSUcreateDiv( { style: { maxWidth: "340px" } },
-				GSUcreateElement( "i", null, "wave.gridsound.com" ),
-				GSUcreateSpan( null, " is a wavelet editor. It's also a subpart of the GridSound's synthesizer." ),
-				GSUcreateElement( "br" ),
-				GSUcreateElement( "br" ),
-				GSUcreateSpan( null, "All the waveforms you can select on the top-left corner button come from " ),
-				GSUcreateAExt( { href: "https://www.adventurekid.se/akrt/waveforms/" }, "Kristoffer Ekstrand (aka Adventure Kid)" ),
-				GSUcreateSpan( null, " special thanks to him ❤️" ),
-				GSUcreateElement( "br" ),
-				GSUcreateElement( "br" ),
-				GSUcreateSpan( null, "You are invited to create an account on " ),
-				GSUcreateA( { href: "gridsound.com/#/auth" }, "GridSound" ),
-				GSUcreateSpan( null, " and start creating and publish your own musics " ),
-				GSUcreateIcon( { icon: "music" } ),
-				GSUcreateElement( "br" ),
-				GSUcreateElement( "br" ),
-				GSUcreateElement( "br" ),
-				GSUcreateDiv( { style: { textAlign: "center", fontSize: "12px", fontWeight: "bold" } },
+			element: $.$div( { style: "max-width:340px" },
+				$.$elem( "i", null, "wave.gridsound.com" ),
+				$.$span( null, " is a wavelet editor. It's also a subpart of the GridSound's synthesizer." ),
+				$.$elem( "br" ),
+				$.$elem( "br" ),
+				$.$span( null, "All the waveforms you can select on the top-left corner button come from " ),
+				$.$linkExt( { href: "https://www.adventurekid.se/akrt/waveforms/" }, "Kristoffer Ekstrand (aka Adventure Kid)" ),
+				$.$span( null, " special thanks to him ❤️" ),
+				$.$elem( "br" ),
+				$.$elem( "br" ),
+				$.$span( null, "You are invited to create an account on " ),
+				$.$link( { href: "gridsound.com/#/auth" }, "GridSound" ),
+				$.$span( null, " and start creating and publish your own musics " ),
+				$.$icon( { icon: "music" } ),
+				$.$elem( "br" ),
+				$.$elem( "br" ),
+				$.$elem( "br" ),
+				$.$div( { style: "text-align:center; font-size:12px; font-weight:bold" },
 					`© ${ new Date().getFullYear() } `,
-					GSUcreateA( { href: "//gridsound.com" }, "gridsound.com" ),
+					$.$link( { href: "//gridsound.com" }, "gridsound.com" ),
 					" all rights reserved",
 				),
 			),
@@ -139,20 +139,19 @@ function init() {
 		gswaPeriodicWaves.$updateWavetable( oscWtName, waves, waves );
 	}
 
-	$body.$setAttr( "data-skin", "gray" );
 	uiWave.$get( 0 ).$reset( "sawtooth" );
 	changeWave( GSUmathWaveSawtooth( 2048 ) );
+	$body
+		.$setAttr( "data-skin", "gray" )
+		.$observeSize( ( w, h ) => {
+			const b = w > h;
 
-	GSUdomObserveSize( $body.$get( 0 ), ( w, h ) => {
-		const b = w > h;
-
-		uiKeys.$setAttr( "orient", b ? "vertical" : "horizontal" );
-		$body.$setAttr( "data-landscape", b );
-	} );
-
-	GSUdomListen( $body.$get( 0 ), {
-		[ GSEV_KEYS_KEYDOWN ]: d => startKey( d.$args[ 0 ] ),
-		[ GSEV_KEYS_KEYUP ]: d => stopKey( d.$args[ 0 ] ),
-		[ GSEV_WAVEEDITOR_CHANGE ]: d => changeWave( d.$args[ 0 ] ),
-	} );
+			uiKeys.$setAttr( "orient", b ? "vertical" : "horizontal" );
+			$body.$setAttr( "data-landscape", b );
+		} )
+		.$listen( {
+			[ GSEV_KEYS_KEYDOWN ]: d => startKey( d.$args[ 0 ] ),
+			[ GSEV_KEYS_KEYUP ]: d => stopKey( d.$args[ 0 ] ),
+			[ GSEV_WAVEEDITOR_CHANGE ]: d => changeWave( d.$args[ 0 ] ),
+		} );
 }
